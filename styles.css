@@ -365,6 +365,27 @@ h3 {
   color: var(--text-secondary);
 }
 
+/* ---------- Hero quote ---------- */
+.hero-quote {
+  margin-top: 32px;
+  padding: 16px 24px;
+  border-left: 3px solid var(--accent);
+  background: var(--bg-surface);
+  border-radius: 0 8px 8px 0;
+  max-width: 560px;
+}
+.hero-quote p {
+  font-size: 1.05rem;
+  font-style: italic;
+  color: var(--text-primary);
+  margin: 0 0 8px;
+}
+.hero-quote cite {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  font-style: normal;
+}
+
 /* ---------- Cards ---------- */
 .card-grid {
   display: grid;
