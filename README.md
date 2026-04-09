@@ -42,7 +42,7 @@ No build step required. Just open the HTML file:
 
 ```bash
 # Clone the repo
-git clone https://github.com/SXD-Github/sxdvibecoding.git
+git clone https://github.com/Enterprise-Services-Group/sxdvibecoding.git
 cd sxdvibecoding
 
 # Open in browser
@@ -58,7 +58,7 @@ Or deploy to any static hosting (GitHub Pages, Netlify, Vercel, etc.).
 1. Go to **Settings → Pages** in your repository
 2. Set source to **Deploy from a branch**
 3. Select `main` branch and `/ (root)` folder
-4. Your site will be live at `https://<org>.github.io/sxdvibecoding/`
+4. Your site will be live at `https://enterprise-services-group.github.io/sxdvibecoding/`
 
 ## Project Structure
 
