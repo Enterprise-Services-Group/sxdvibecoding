@@ -1,0 +1,1099 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GitHub Copilot Learning Hub — Master AI-Powered Development in VS Code</title>
+  <meta name="description" content="An interactive guide to every GitHub Copilot feature in VS Code. From inline suggestions to agents, MCP servers, and custom instructions — level up your AI coding skills." />
+  <meta property="og:title" content="GitHub Copilot Learning Hub" />
+  <meta property="og:description" content="Master every GitHub Copilot feature in VS Code with this interactive learning guide." />
+  <meta property="og:type" content="website" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<!-- ============================================================
+     NAVIGATION
+     ============================================================ -->
+<nav class="nav" aria-label="Main navigation">
+  <div class="nav-inner">
+    <a href="#hero" class="nav-logo" aria-label="Copilot Learning Hub home">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+        <path d="M12 2C6.48 2 2 6 2 11c0 3.17 1.8 5.93 4.5 7.38V22l3.5-2 3.5 2v-3.62C16.2 16.93 18 14.17 18 11c0-1.5-.4-2.9-1-4"/>
+        <circle cx="8.5" cy="11" r="1.5" fill="currentColor"/>
+        <circle cx="15.5" cy="11" r="1.5" fill="currentColor"/>
+        <path d="M17 4h4m-2-2v4" stroke-linecap="round"/>
+      </svg>
+      Copilot Learning Hub
+    </a>
+
+    <button class="menu-toggle" id="menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
+      </svg>
+    </button>
+
+    <ul class="nav-links" id="nav-links">
+      <li><a href="#setup">Setup</a></li>
+      <li><a href="#inline-suggestions">Suggestions</a></li>
+      <li><a href="#nes">NES</a></li>
+      <li><a href="#chat">Chat</a></li>
+      <li><a href="#inline-chat">Inline Chat</a></li>
+      <li><a href="#agents">Agents</a></li>
+      <li><a href="#smart-actions">Smart Actions</a></li>
+      <li><a href="#slash-commands">Commands</a></li>
+      <li><a href="#context-tools">Context</a></li>
+      <li><a href="#customization">Customize</a></li>
+      <li><a href="#best-practices">Best Practices</a></li>
+      <li><a href="#shortcuts">Shortcuts</a></li>
+    </ul>
+
+    <div class="nav-actions">
+      <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme"></button>
+    </div>
+  </div>
+</nav>
+
+<!-- Scroll progress -->
+<div class="progress-bar" id="scroll-progress" aria-hidden="true"></div>
+<!-- Learning progress -->
+<div class="progress-bar learning" id="learning-progress" aria-hidden="true"></div>
+
+
+<!-- ============================================================
+     1. HERO
+     ============================================================ -->
+<section class="hero" id="hero">
+  <div class="container">
+    <div class="hero-content reveal">
+      <span class="section-label">Interactive Learning Guide</span>
+      <h1>Master GitHub Copilot in VS Code</h1>
+      <p>From inline suggestions to autonomous agents — learn every feature, shortcut, and best practice to become an AI-powered developer. Check off sections as you go.</p>
+      <a href="#setup" class="hero-cta">
+        Start Learning
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+      <div class="hero-badges">
+        <span class="hero-badge">⌨️ Keyboard shortcuts</span>
+        <span class="hero-badge">🧪 Try-it exercises</span>
+        <span class="hero-badge">✅ Progress tracking</span>
+        <span class="hero-badge">🌙 Dark &amp; Light themes</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     2. GETTING STARTED / SETUP
+     ============================================================ -->
+<section id="setup">
+  <div class="container">
+    <div class="section-header reveal">
+      <input type="checkbox" class="section-check" data-section="setup" aria-label="Mark Setup as complete" />
+      <div>
+        <span class="section-label">Step 1</span>
+        <h2>Getting Started &amp; Setup</h2>
+      </div>
+    </div>
+    <p class="section-subtitle reveal">Get Copilot running in VS Code in under a minute.</p>
+
+    <div class="card-grid reveal">
+      <div class="card">
+        <div class="card-icon">1</div>
+        <h3>Sign In</h3>
+        <p>Hover over the <strong>Copilot icon</strong> in the Status Bar and select <strong>Use AI Features</strong>. Sign in with your GitHub account — your Enterprise subscription activates automatically.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">2</div>
+        <h3>Open Chat</h3>
+        <p>Press <kbd>⌃⌘I</kbd> (macOS) or <kbd>Ctrl+Alt+I</kbd> (Win/Linux) to open the Chat view. This is your main AI conversation hub.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">3</div>
+        <h3>Initialize Your Project</h3>
+        <p>Type <code>/init</code> in chat. Copilot analyzes your codebase and generates a <code>copilot-instructions.md</code> file matched to your project's patterns.</p>
+      </div>
+    </div>
+
+    <div class="try-it reveal">
+      <div class="try-it-label">🧪 Try It</div>
+      <p>Open any project in VS Code, press <kbd>⌃⌘I</kbd>, type <code>/init</code>, and review the generated instructions. Commit the file to share conventions with your team.</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     3. INLINE SUGGESTIONS (GHOST TEXT)
+     ============================================================ -->
+<section id="inline-suggestions">
+  <div class="container">
+    <div class="section-header reveal">
+      <input type="checkbox" class="section-check" data-section="inline-suggestions" aria-label="Mark Inline Suggestions as complete" />
+      <div>
+        <span class="section-label">Step 2</span>
+        <h2>Inline Suggestions (Ghost Text)</h2>
+      </div>
+    </div>
+    <p class="section-subtitle reveal">Copilot offers dimmed ghost-text completions as you type — from single lines to entire function bodies.</p>
+
+    <div class="feature-block reveal">
+      <div class="feature-text">
+        <h3>How It Works</h3>
+        <p>Start typing in any language and Copilot generates context-aware suggestions drawing from your open files, project structure, and coding patterns.</p>
+        <ul class="feature-list">
+          <li><kbd>Tab</kbd> — Accept the full suggestion</li>
+          <li><kbd>⌘→</kbd> — Accept the next word only</li>
+          <li><kbd>⌥]</kbd> / <kbd>⌥[</kbd> — Cycle through alternative suggestions</li>
+          <li><kbd>Esc</kbd> — Dismiss the suggestion</li>
+          <li>Hover over ghost text to see navigation controls</li>
+        </ul>
+      </div>
+      <div class="feature-visual">
+        <span class="cursor-line">function calculateDaysBetween(start, end) {</span>
+        <span class="ghost">  const diffTime = Math.abs(end - start);</span>
+        <span class="ghost">  const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));</span>
+        <span class="ghost">  return diffDays;</span>
+        <span class="ghost">}</span>
+      </div>
+    </div>
+
+    <div class="tip-box blue reveal">
+      <span class="tip-box-icon">💡</span>
+      <p><strong>Pro tip:</strong> Write a descriptive code comment (e.g. <code>// use recursion to flatten nested arrays</code>) and Copilot generates an implementation matching your intent. Open related files in your editor to give Copilot better context.</p>
+    </div>
+
+    <div class="collapsible reveal">
+      <div class="collapsible-header">
+        <h3>⚙️ Settings &amp; Configuration</h3>
+        <svg class="collapsible-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+      </div>
+      <div class="collapsible-body">
+        <div class="collapsible-content">
+          <ul class="feature-list">
+            <li><code>github.copilot.enable</code> — Enable/disable per language (<code>{ "python": true, "markdown": false }</code>)</li>
+            <li><code>editor.inlineSuggest.fontFamily</code> — Change the ghost text font</li>
+            <li><code>editor.inlineSuggest.syntaxHighlightingEnabled</code> — Toggle syntax highlighting for ghost text</li>
+            <li>Use the <strong>Copilot menu</strong> in the Status Bar to snooze suggestions temporarily (5-minute increments)</li>
+            <li>Run <strong>GitHub Copilot: Change Completions Model</strong> from the Command Palette to switch the AI model used for inline suggestions</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="try-it reveal">
+      <div class="try-it-label">🧪 Try It</div>
+      <p>Create a new file, write <code>// A function that generates a random hex color</code> on the first line and press Enter. Watch Copilot generate the implementation. Press <kbd>⌥]</kbd> to see alternative versions.</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     4. NEXT EDIT SUGGESTIONS (NES)
+     ============================================================ -->
+<section id="nes">
+  <div class="container">
+    <div class="section-header reveal">
+      <input type="checkbox" class="section-check" data-section="nes" aria-label="Mark NES as complete" />
+      <div>
+        <span class="section-label">Step 3</span>
+        <h2>Next Edit Suggestions (NES)</h2>
+        <span class="tag new">Powerful</span>
+      </div>
+    </div>
+    <p class="section-subtitle reveal">NES predicts <em>where</em> your next edit should be and <em>what</em> it should change — then lets you Tab through edits sequentially.</p>
+
+    <div class="card-grid reveal">
+      <div class="card">
+        <div class="card-icon">🔤</div>
+        <h3>Fix Typos &amp; Mistakes</h3>
+        <p>Copilot catches typos like <code>conts</code> → <code>const</code>, inverted ternary logic, or <code>||</code> that should be <code>&amp;&amp;</code>.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">🎯</div>
+        <h3>Follow Intent Changes</h3>
+        <p>Rename <code>Point</code> to <code>Point3D</code>, and NES suggests adding a <code>z</code> property, then updating the distance calculation.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">♻️</div>
+        <h3>Propagate Refactors</h3>
+        <p>Rename a variable once and NES suggests updating every subsequent reference. Paste code, and it adjusts to match the local style.</p>
+      </div>
+    </div>
+
+    <div class="tip-box green reveal">
+      <span class="tip-box-icon">➡️</span>
+      <p><strong>Navigation:</strong> An arrow in the gutter shows where the next edit suggestion is. Press <kbd>Tab</kbd> to jump to the suggestion, then <kbd>Tab</kbd> again to accept it. Hover the gutter arrow for the full menu.</p>
+    </div>
+
+    <div class="collapsible reveal">
+      <div class="collapsible-header">
+        <h3>⚙️ NES Settings</h3>
+        <svg class="collapsible-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+      </div>
+      <div class="collapsible-body">
+        <div class="collapsible-content">
+          <ul class="feature-list">
+            <li><code>github.copilot.nextEditSuggestions.enabled</code> — Enable NES (must be on)</li>
+            <li><code>editor.inlineSuggest.edits.allowCodeShifting</code> — Allow NES to shift code to display a suggestion</li>
+            <li><code>editor.inlineSuggest.edits.renderSideBySide</code> — Show larger edits side-by-side (<code>auto</code> or <code>never</code>)</li>
+            <li><code>github.copilot.nextEditSuggestions.fixes</code> — Enable NES based on diagnostics (squiggles, missing imports)</li>
+            <li><code>editor.inlineSuggest.edits.showCollapsed</code> — Show changes only when you Tab to them (reduce visual noise)</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="try-it reveal">
+      <div class="try-it-label">🧪 Try It</div>
+      <p>Open a file with a class. Rename one property, then watch for the gutter arrow suggesting the next place that needs updating. <kbd>Tab</kbd> through the chain of related edits.</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     5. CHAT VIEW
+     ============================================================ -->
+<section id="chat">
+  <div class="container">
+    <div class="section-header reveal">
+      <input type="checkbox" class="section-check" data-section="chat" aria-label="Mark Chat View as complete" />
+      <div>
+        <span class="section-label">Step 4</span>
+        <h2>Chat View</h2>
+      </div>
+    </div>
+    <p class="section-subtitle reveal">Your main AI conversation hub — multi-turn conversations, file edits, terminal commands, and more.</p>
+
+    <div class="feature-block reveal">
+      <div class="feature-text">
+        <h3>Opening Chat</h3>
+        <ul class="feature-list">
+          <li><kbd>⌃⌘I</kbd> — Open the Chat view in the sidebar</li>
+          <li><kbd>⌘N</kbd> — Start a new chat session</li>
+          <li><kbd>⌥⌘.</kbd> — Open the model picker to switch AI model</li>
+        </ul>
+
+        <h3 class="mt-md">Session Configuration</h3>
+        <p>Each session has four key settings:</p>
+        <ul class="feature-list">
+          <li><strong>Session type</strong> — Local, Background, or Cloud</li>
+          <li><strong>Agent</strong> — Agent, Plan, Ask, or custom agents</li>
+          <li><strong>Permission level</strong> — Default Approvals, Bypass Approvals, or Autopilot</li>
+          <li><strong>Language model</strong> — Choose from available models via the model picker</li>
+        </ul>
+      </div>
+      <div class="feature-visual">
+        <strong class="text-accent">Prompt (Agent)</strong><br><br>
+        Create a REST API with Express.js<br>
+        that has endpoints for users and<br>
+        products with input validation.<br><br>
+        <span class="ghost">→ Creating server.js...</span><br>
+        <span class="ghost">→ Creating routes/users.js...</span><br>
+        <span class="ghost">→ Creating routes/products.js...</span><br>
+        <span class="ghost">→ Running npm install...</span><br>
+        <span class="ghost">→ Running tests... ✓ All passed</span>
+      </div>
+    </div>
+
+    <h3 class="reveal mt-lg">Adding Context to Prompts</h3>
+    <div class="card-grid reveal">
+      <div class="card">
+        <div class="card-icon">#</div>
+        <h3>#-mentions</h3>
+        <p>Type <code>#</code> to reference files, folders, symbols, tools, or variables like <code>#codebase</code>, <code>#changes</code>, <code>#problems</code>, <code>#terminalSelection</code>.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">@</div>
+        <h3>@-mentions</h3>
+        <p>Type <code>@</code> for domain-specific participants: <code>@github</code> (repos, PRs, issues), <code>@terminal</code> (shell commands), <code>@vscode</code> (editor features).</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">📎</div>
+        <h3>Drag &amp; Drop</h3>
+        <p>Drag files, folders, editor tabs, or Problems panel items directly into chat. Attach images/screenshots for visual context.</p>
+      </div>
+    </div>
+
+    <h3 class="reveal mt-lg">Reviewing Changes</h3>
+    <div class="card-grid reveal">
+      <div class="card">
+        <div class="card-icon">📝</div>
+        <h3>Inline Diffs</h3>
+        <p>Open a changed file to see inline diffs. Use the editor overlay to navigate between edits and <strong>Keep</strong> or <strong>Undo</strong> individually.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">📸</div>
+        <h3>Checkpoints</h3>
+        <p>VS Code auto-creates snapshots at key points. Roll back to any previous state if the agent goes off track.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">📂</div>
+        <h3>Stage to Accept</h3>
+        <p>Staging changes in Source Control automatically accepts pending edits. Discarding changes discards edits too.</p>
+      </div>
+    </div>
+
+    <div class="tip-box yellow reveal">
+      <span class="tip-box-icon">💡</span>
+      <p><strong>Multi-turn tip:</strong> Build on previous responses within the same session. The AI maintains full context. Use <code>/compact</code> to summarize when the conversation grows long, or <code>/fork</code> to branch off into a new independent session.</p>
+    </div>
+
+    <div class="try-it reveal">
+      <div class="try-it-label">🧪 Try It</div>
+      <p>Open Chat, select the <strong>Agent</strong> mode, and prompt: <em>"Create a calculator web app with HTML, CSS, and JS. Add unit tests."</em> Watch the agent create files, install dependencies, and run tests autonomously.</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     6. INLINE CHAT
+     ============================================================ -->
+<section id="inline-chat">
+  <div class="container">
+    <div class="section-header reveal">
+      <input type="checkbox" class="section-check" data-section="inline-chat" aria-label="Mark Inline Chat as complete" />
+      <div>
+        <span class="section-label">Step 5</span>
+        <h2>Inline Chat &amp; Quick Chat</h2>
+      </div>
+    </div>
+    <p class="section-subtitle reveal">Targeted AI assistance without leaving the editor or terminal. Perfect for quick, focused changes.</p>
+
+    <div class="card-grid reveal">
+      <div class="card">
+        <div class="card-icon">📝</div>
+        <h3>Editor Inline Chat</h3>
+        <p>Press <kbd>⌘I</kbd> in the editor to open a prompt directly in your code. Select a code block first to scope the prompt. Changes appear as inline diffs — <strong>Keep</strong> or <strong>Undo</strong>.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">⬛</div>
+        <h3>Terminal Inline Chat</h3>
+        <p>Press <kbd>⌘I</kbd> in the integrated terminal. Ask for shell commands in natural language. Review the suggestion, then <kbd>⌘Enter</kbd> to run or <kbd>⌥Enter</kbd> to insert for editing.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">⚡</div>
+        <h3>Quick Chat</h3>
+        <p>Press <kbd>⇧⌥⌘L</kbd> for a lightweight popup chat at the top of the editor. Ask quick questions without opening the full Chat view. Continue in full view if needed.</p>
+      </div>
+    </div>
+
+    <div class="tip-box blue reveal">
+      <span class="tip-box-icon">💡</span>
+      <p><strong>When to use what:</strong> Use <strong>inline chat</strong> for targeted single-file edits (refactoring a function, adding error handling). Use the <strong>Chat view</strong> for multi-file tasks. Use <strong>Quick Chat</strong> for one-off questions.</p>
+    </div>
+
+    <div class="try-it reveal">
+      <div class="try-it-label">🧪 Try It</div>
+      <p>Select a function in your code, press <kbd>⌘I</kbd>, and type <em>"Add input validation and error handling"</em>. Review the inline diff and keep the changes. Then open the terminal, press <kbd>⌘I</kbd>, and ask <em>"find all TODO comments in this project"</em>.</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     7. AGENTS
+     ============================================================ -->
+<section id="agents">
+  <div class="container">
+    <div class="section-header reveal">
+      <input type="checkbox" class="section-check" data-section="agents" aria-label="Mark Agents as complete" />
+      <div>
+        <span class="section-label">Step 6</span>
+        <h2>Agents — Autonomous AI Assistants</h2>
+      </div>
+    </div>
+    <p class="section-subtitle reveal">Give an agent a goal and it plans, edits files, runs commands, and self-corrects across your entire project.</p>
+
+    <h3 class="reveal">Built-in Agents</h3>
+    <div class="card-grid reveal">
+      <div class="card">
+        <div class="card-icon">🤖</div>
+        <h3>Agent</h3>
+        <p>Autonomously plans and implements changes across multiple files. Runs terminal commands, invokes tools, and iterates on failures. The default workhorse.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">📋</div>
+        <h3>Plan</h3>
+        <p>Creates a structured, step-by-step implementation plan before any code is written. Review the plan, refine it, then hand off to Agent for execution.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">❓</div>
+        <h3>Ask</h3>
+        <p>Answers questions about your codebase, coding concepts, or VS Code itself — <strong>without</strong> making file changes. Read-only exploration and learning.</p>
+      </div>
+    </div>
+
+    <h3 class="reveal mt-lg">Agent Types — Where They Run</h3>
+    <div class="card-grid reveal">
+      <div class="card">
+        <div class="card-icon">💻</div>
+        <h3>Local Agents</h3>
+        <p>Run interactively in your VS Code editor with full access to workspace, tools, extensions, and MCP servers. Best for iterative, hands-on work.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">⬛</div>
+        <h3>Copilot CLI (Background)</h3>
+        <p>Run autonomously on your machine from the command line. Optionally use Git worktrees for isolation. Great for well-defined tasks you don't need to watch.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">☁️</div>
+        <h3>Cloud Agents</h3>
+        <p>Run remotely on GitHub. Create branches, implement changes, and open pull requests for team review. Assign GitHub issues directly to <code>copilot</code>.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">🔌</div>
+        <h3>Third-Party Agents</h3>
+        <p>Use agents from Anthropic (Claude) or OpenAI (Codex) through the VS Code agent harness. Run locally or in the cloud with your Copilot subscription.</p>
+      </div>
+    </div>
+
+    <h3 class="reveal mt-lg">Permission Levels</h3>
+    <div class="card-grid reveal">
+      <div class="card">
+        <div class="card-icon">🔒</div>
+        <h3>Default Approvals</h3>
+        <p>Only read-only/safe tools are auto-approved. You confirm each write operation and terminal command.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">⚡</div>
+        <h3>Bypass Approvals</h3>
+        <p>Auto-approves all tool calls without confirmation dialogs. The agent may still ask clarifying questions.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">🚀</div>
+        <h3>Autopilot <span class="tag experimental">Preview</span></h3>
+        <p>Auto-approves everything <em>and</em> auto-responds to questions. The agent works fully autonomously until the task is done.</p>
+      </div>
+    </div>
+
+    <div class="tip-box green reveal">
+      <span class="tip-box-icon">🔄</span>
+      <p><strong>Hand-off:</strong> Start with Plan to design an approach, hand off to a local Agent for implementation, then delegate to a Cloud agent to open a PR. Conversation history carries over at each step. Run multiple sessions in parallel via the Sessions list.</p>
+    </div>
+
+    <div class="try-it reveal">
+      <div class="try-it-label">🧪 Try It</div>
+      <p>Select <strong>Plan</strong> from the agent picker and prompt: <em>"Plan a migration of our test suite from Jest to Vitest."</em> Review the plan, then change the agent to <strong>Agent</strong> and let it execute. Use checkpoints to roll back if needed.</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     8. SMART ACTIONS
+     ============================================================ -->
+<section id="smart-actions">
+  <div class="container">
+    <div class="section-header reveal">
+      <input type="checkbox" class="section-check" data-section="smart-actions" aria-label="Mark Smart Actions as complete" />
+      <div>
+        <span class="section-label">Step 7</span>
+        <h2>Smart Actions</h2>
+      </div>
+    </div>
+    <p class="section-subtitle reveal">AI-powered actions integrated directly into the VS Code UI — no prompt required. They appear contextually where you need them.</p>
+
+    <div class="card-grid reveal">
+      <div class="card">
+        <div class="card-icon">💬</div>
+        <h3>Generate Commit Messages</h3>
+        <p>Click the sparkle icon in Source Control to generate a commit message from your staged changes. Also generates PR titles and descriptions.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">🔀</div>
+        <h3>Resolve Merge Conflicts <span class="tag experimental">Experimental</span></h3>
+        <p>Click <strong>Resolve Merge Conflict with AI</strong> in the editor. Copilot uses the merge base and both branch changes to propose a resolution.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">📖</div>
+        <h3>Generate Documentation</h3>
+        <p>Right-click → <strong>Generate Code → Generate Docs</strong>. Copilot writes documentation comments for your selected code in the appropriate format.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">🧪</div>
+        <h3>Generate Tests</h3>
+        <p>Right-click → <strong>Generate Code → Generate Tests</strong>. Tests are added to an existing test file or a new one is created automatically.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">🔧</div>
+        <h3>Fix Coding Errors</h3>
+        <p>Right-click → <strong>Generate Code → Fix</strong>. Also: watch for the lightbulb Code Action on compiler/linting errors with AI fix suggestions.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">❌</div>
+        <h3>Fix Test Failures</h3>
+        <p>In the Test Explorer, hover a failing test and click the sparkle icon. Or use <code>/fixTestFailure</code> in chat. Agents auto-fix and re-run when enabled.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">⬛</div>
+        <h3>Fix Terminal Errors</h3>
+        <p>When a command fails, a sparkle appears in the terminal gutter offering a Quick Fix to explain what happened and suggest a corrected command.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">🔍</div>
+        <h3>Code Review</h3>
+        <p>Right-click → <strong>Generate Code → Review</strong> for a code block, or use the <strong>Code Review</strong> button in the PR Files Changed view for all changes.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">✏️</div>
+        <h3>Rename with AI</h3>
+        <p>Press <kbd>F2</kbd> to rename a symbol and Copilot suggests contextually appropriate names based on usage and surrounding code.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">🔎</div>
+        <h3>Semantic Search <span class="tag experimental">Preview</span></h3>
+        <p>Find results in the Search view that are semantically relevant even without exact text matches. Enable with <code>search.searchView.semanticSearchBehavior</code>.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">🖼️</div>
+        <h3>Alt Text for Images</h3>
+        <p>In Markdown files, put cursor on an image link → Code Action lightbulb → <strong>Generate alt text</strong>. Also supports <strong>Refine alt text</strong>.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">✅</div>
+        <h3>Implement TODOs</h3>
+        <p>Add a <code>TODO</code> comment in code. Click the Code Action → <strong>Delegate to coding agent</strong>. Copilot coding agent creates a PR implementing the task.</p>
+      </div>
+    </div>
+
+    <div class="try-it reveal">
+      <div class="try-it-label">🧪 Try It</div>
+      <p>Stage some changes in Source Control and click the sparkle icon to generate a commit message. Then select a function, right-click → <strong>Generate Code → Generate Tests</strong> to auto-generate a test file.</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     9. SLASH COMMANDS
+     ============================================================ -->
+<section id="slash-commands">
+  <div class="container">
+    <div class="section-header reveal">
+      <input type="checkbox" class="section-check" data-section="slash-commands" aria-label="Mark Slash Commands as complete" />
+      <div>
+        <span class="section-label">Step 8</span>
+        <h2>Slash Commands</h2>
+      </div>
+    </div>
+    <p class="section-subtitle reveal">Shortcuts to specific functionality within chat. Type <code>/</code> followed by the command name.</p>
+
+    <div class="cmd-grid reveal">
+      <div class="cmd-item"><span class="cmd-name">/explain</span><span class="cmd-desc">Explain a code block, file, or concept</span></div>
+      <div class="cmd-item"><span class="cmd-name">/fix</span><span class="cmd-desc">Fix code block, compiler, or linting errors</span></div>
+      <div class="cmd-item"><span class="cmd-name">/doc</span><span class="cmd-desc">Generate documentation comments (inline chat)</span></div>
+      <div class="cmd-item"><span class="cmd-name">/tests</span><span class="cmd-desc">Generate tests for selected methods/functions</span></div>
+      <div class="cmd-item"><span class="cmd-name">/setupTests</span><span class="cmd-desc">Set up a testing framework for your project</span></div>
+      <div class="cmd-item"><span class="cmd-name">/fixTestFailure</span><span class="cmd-desc">Suggest fixes for failing tests</span></div>
+      <div class="cmd-item"><span class="cmd-name">/init</span><span class="cmd-desc">Generate workspace instructions from your project</span></div>
+      <div class="cmd-item"><span class="cmd-name">/plan</span><span class="cmd-desc">Create a structured implementation plan</span></div>
+      <div class="cmd-item"><span class="cmd-name">/new</span><span class="cmd-desc">Scaffold a new project or file</span></div>
+      <div class="cmd-item"><span class="cmd-name">/newNotebook</span><span class="cmd-desc">Generate a new Jupyter notebook</span></div>
+      <div class="cmd-item"><span class="cmd-name">/search</span><span class="cmd-desc">Generate a search query for the Search view</span></div>
+      <div class="cmd-item"><span class="cmd-name">/startDebugging</span><span class="cmd-desc">Generate launch.json and start debugging</span></div>
+      <div class="cmd-item"><span class="cmd-name">/clear</span><span class="cmd-desc">Start a new chat session</span></div>
+      <div class="cmd-item"><span class="cmd-name">/compact</span><span class="cmd-desc">Summarize conversation to free context window</span></div>
+      <div class="cmd-item"><span class="cmd-name">/fork</span><span class="cmd-desc">Branch off into a new independent session</span></div>
+      <div class="cmd-item"><span class="cmd-name">/debug</span><span class="cmd-desc">Show the Chat Debug view for troubleshooting</span></div>
+      <div class="cmd-item"><span class="cmd-name">/troubleshoot</span><span class="cmd-desc">Analyze agent debug logs for a session</span></div>
+      <div class="cmd-item"><span class="cmd-name">/create-agent</span><span class="cmd-desc">Generate a custom agent with AI</span></div>
+      <div class="cmd-item"><span class="cmd-name">/create-instruction</span><span class="cmd-desc">Generate an instructions file with AI</span></div>
+      <div class="cmd-item"><span class="cmd-name">/create-skill</span><span class="cmd-desc">Generate an agent skill with AI</span></div>
+      <div class="cmd-item"><span class="cmd-name">/create-prompt</span><span class="cmd-desc">Generate a reusable prompt file</span></div>
+      <div class="cmd-item"><span class="cmd-name">/create-hook</span><span class="cmd-desc">Generate a hook configuration</span></div>
+      <div class="cmd-item"><span class="cmd-name">/instructions</span><span class="cmd-desc">Open the Configure Instructions menu</span></div>
+      <div class="cmd-item"><span class="cmd-name">/yolo</span><span class="cmd-desc">Enable auto-approval of all tool calls</span></div>
+    </div>
+
+    <div class="try-it reveal">
+      <div class="try-it-label">🧪 Try It</div>
+      <p>Open chat and type <code>/new Express app with TypeScript and Svelte</code> to scaffold a project. Then try <code>/plan migrate from REST to GraphQL</code> to see a structured plan.</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     10. CHAT PARTICIPANTS
+     ============================================================ -->
+<section id="chat-participants">
+  <div class="container">
+    <div class="section-header reveal">
+      <input type="checkbox" class="section-check" data-section="chat-participants" aria-label="Mark Chat Participants as complete" />
+      <div>
+        <span class="section-label">Step 9</span>
+        <h2>Chat Participants</h2>
+      </div>
+    </div>
+    <p class="section-subtitle reveal">Domain-specific AI assistants you invoke with <code>@</code> in chat.</p>
+
+    <div class="card-grid reveal">
+      <div class="card">
+        <div class="card-icon font-lg">@</div>
+        <h3>@github</h3>
+        <p>Ask about repositories, issues, pull requests, and more across your GitHub org. Example: <code>@github What are all open PRs assigned to me?</code></p>
+      </div>
+      <div class="card">
+        <div class="card-icon">⬛</div>
+        <h3>@terminal</h3>
+        <p>Ask about shell commands and terminal operations. Example: <code>@terminal list the 5 largest files in this workspace</code>. Use <code>@terminal /explain</code> to explain a command.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon text-accent">⚙️</div>
+        <h3>@vscode</h3>
+        <p>Ask about VS Code features, settings, and extension APIs. Example: <code>@vscode how to enable word wrapping?</code></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     11. CONTEXT & TOOLS
+     ============================================================ -->
+<section id="context-tools">
+  <div class="container">
+    <div class="section-header reveal">
+      <input type="checkbox" class="section-check" data-section="context-tools" aria-label="Mark Context & Tools as complete" />
+      <div>
+        <span class="section-label">Step 10</span>
+        <h2>Context &amp; Built-in Tools</h2>
+      </div>
+    </div>
+    <p class="section-subtitle reveal">Providing the right context is the single most important thing for getting quality AI responses. Here are all the context mechanisms available.</p>
+
+    <h3 class="reveal"># Context Variables (type <code>#</code> in chat)</h3>
+    <div class="cmd-grid reveal">
+      <div class="cmd-item"><span class="cmd-name">#file</span><span class="cmd-desc">Reference a specific file</span></div>
+      <div class="cmd-item"><span class="cmd-name">#folder</span><span class="cmd-desc">Reference a folder and its contents</span></div>
+      <div class="cmd-item"><span class="cmd-name">#symbol</span><span class="cmd-desc">Reference a code symbol (function, class, etc.)</span></div>
+      <div class="cmd-item"><span class="cmd-name">#codebase</span><span class="cmd-desc">Perform automatic code search across workspace</span></div>
+      <div class="cmd-item"><span class="cmd-name">#changes</span><span class="cmd-desc">Current source control changes</span></div>
+      <div class="cmd-item"><span class="cmd-name">#problems</span><span class="cmd-desc">Workspace errors from the Problems panel</span></div>
+      <div class="cmd-item"><span class="cmd-name">#selection</span><span class="cmd-desc">Current editor text selection</span></div>
+      <div class="cmd-item"><span class="cmd-name">#terminalSelection</span><span class="cmd-desc">Current terminal selection</span></div>
+      <div class="cmd-item"><span class="cmd-name">#searchResults</span><span class="cmd-desc">Results from the Search view</span></div>
+      <div class="cmd-item"><span class="cmd-name">#fetch</span><span class="cmd-desc">Fetch content from a web URL</span></div>
+      <div class="cmd-item"><span class="cmd-name">#extensions</span><span class="cmd-desc">Search/ask about VS Code extensions</span></div>
+    </div>
+
+    <h3 class="reveal mt-lg">Built-in Tool Sets (used by agents)</h3>
+    <div class="cmd-grid reveal">
+      <div class="cmd-item"><span class="cmd-name">#read</span><span class="cmd-desc">Read files, notebook summaries, terminal output</span></div>
+      <div class="cmd-item"><span class="cmd-name">#edit</span><span class="cmd-desc">Create/edit files and directories, edit notebooks</span></div>
+      <div class="cmd-item"><span class="cmd-name">#execute</span><span class="cmd-desc">Run terminal commands, notebook cells, tasks</span></div>
+      <div class="cmd-item"><span class="cmd-name">#search</span><span class="cmd-desc">Text search, file search, codebase search, list directories</span></div>
+      <div class="cmd-item"><span class="cmd-name">#agent</span><span class="cmd-desc">Delegate tasks to other agents / run subagents</span></div>
+      <div class="cmd-item"><span class="cmd-name">#browser</span><span class="cmd-desc">Navigate, screenshot, click, type in integrated browser <span class="tag experimental">Experimental</span></span></div>
+      <div class="cmd-item"><span class="cmd-name">#web</span><span class="cmd-desc">Fetch web page content (<code>#web/fetch</code>)</span></div>
+      <div class="cmd-item"><span class="cmd-name">#vscode</span><span class="cmd-desc">Run commands, install extensions, search extensions, VS Code API</span></div>
+      <div class="cmd-item"><span class="cmd-name">#todos</span><span class="cmd-desc">Track implementation progress with a todo list</span></div>
+    </div>
+
+    <div class="tip-box blue reveal">
+      <span class="tip-box-icon">💡</span>
+      <p><strong>Tool management:</strong> Click the <strong>Configure Tools</strong> button in chat to see all available tools and toggle them on/off. Fewer active tools means faster, more relevant responses.</p>
+    </div>
+
+    <div class="try-it reveal">
+      <div class="try-it-label">🧪 Try It</div>
+      <p>In chat, type: <em>"Explain how authentication works in #codebase"</em> — Copilot will search your project and answer. Then try: <em>"Summarize #fetch https://code.visualstudio.com/updates"</em> to pull in web content.</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     12. CUSTOMIZATION
+     ============================================================ -->
+<section id="customization">
+  <div class="container">
+    <div class="section-header reveal">
+      <input type="checkbox" class="section-check" data-section="customization" aria-label="Mark Customization as complete" />
+      <div>
+        <span class="section-label">Step 11</span>
+        <h2>Customization &amp; Configuration</h2>
+      </div>
+    </div>
+    <p class="section-subtitle reveal">Tailor the AI to your project so it generates code matching your conventions from the start.</p>
+
+    <!-- Custom Instructions -->
+    <div class="collapsible open reveal">
+      <div class="collapsible-header">
+        <h3>📜 Custom Instructions</h3>
+        <svg class="collapsible-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+      </div>
+      <div class="collapsible-body">
+        <div class="collapsible-content">
+          <p>Define coding standards that automatically apply to every AI response.</p>
+
+          <h4 class="mt-sm">Always-on Instructions (apply to every request)</h4>
+          <ul class="feature-list">
+            <li><code>.github/copilot-instructions.md</code> — Project-wide coding conventions. Start here.</li>
+            <li><code>AGENTS.md</code> — Cross-agent instructions (works with Claude, Copilot, etc.)</li>
+            <li><code>CLAUDE.md</code> — Claude-specific compatibility (also recognized by VS Code)</li>
+            <li><strong>Organization-level</strong> — Shared across all repos in your GitHub org</li>
+          </ul>
+
+          <h4 class="mt-sm">File-based Instructions (conditional, with <code>applyTo</code> patterns)</h4>
+          <div class="code-block">
+            <button class="copy-btn">Copy</button>
+            <code>---
+name: 'Python Standards'
+description: 'Coding conventions for Python files'
+applyTo: '**/*.py'
+---
+# Python coding standards
+- Follow PEP 8 style guide
+- Use type hints for all function signatures
+- Write docstrings for public functions</code>
+          </div>
+          <p class="text-secondary">Store <code>.instructions.md</code> files in <code>.github/instructions/</code>. Organize by language, team, or module. VS Code searches recursively.</p>
+
+          <h4 class="mt-sm">Quick Commands</h4>
+          <ul class="feature-list">
+            <li><code>/init</code> — Auto-generate instructions from your project</li>
+            <li><code>/instructions</code> — Open the Configure Instructions menu</li>
+            <li><code>/create-instruction</code> — Generate a targeted instructions file with AI</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Custom Agents -->
+    <div class="collapsible reveal">
+      <div class="collapsible-header">
+        <h3>🤖 Custom Agents</h3>
+        <svg class="collapsible-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+      </div>
+      <div class="collapsible-body">
+        <div class="collapsible-content">
+          <p>Create specialized AI personas with their own tools, instructions, and model preferences.</p>
+          <div class="code-block">
+            <button class="copy-btn">Copy</button>
+            <code>---
+name: 'Reviewer'
+description: 'Review code for quality and best practices.'
+tools: ['read', 'search', 'web']
+---
+# Code Reviewer Agent
+
+You are an experienced senior developer. Review code
+for quality, security issues, and performance problems.
+
+## Important
+- DO NOT make direct code changes
+- Focus on explaining what and why
+- Ask clarifying questions about design decisions</code>
+          </div>
+          <p class="text-secondary">Save as <code>.github/agents/Reviewer.agent.md</code>. Appears in the agent picker. Use <code>/create-agent</code> to generate one with AI.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- MCP Servers -->
+    <div class="collapsible reveal">
+      <div class="collapsible-header">
+        <h3>🔌 MCP Servers (Model Context Protocol)</h3>
+        <svg class="collapsible-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+      </div>
+      <div class="collapsible-body">
+        <div class="collapsible-content">
+          <p>Extend agents with external tools — databases, APIs, browsers, and more via the open MCP standard.</p>
+
+          <h4 class="mt-sm">Install from Gallery</h4>
+          <ul class="feature-list">
+            <li>Open Extensions view (<kbd>⇧⌘X</kbd>) → search <code>@mcp</code></li>
+            <li>Click <strong>Install</strong> to add to your user profile, or right-click → <strong>Install in Workspace</strong></li>
+          </ul>
+
+          <h4 class="mt-sm">Configure Manually</h4>
+          <div class="code-block">
+            <button class="copy-btn">Copy</button>
+            <code>// .vscode/mcp.json
+{
+  "servers": {
+    "github": {
+      "type": "http",
+      "url": "https://api.githubcopilot.com/mcp"
+    },
+    "playwright": {
+      "command": "npx",
+      "args": ["-y", "@microsoft/mcp-server-playwright"]
+    }
+  }
+}</code>
+          </div>
+
+          <h4 class="mt-sm">Capabilities</h4>
+          <ul class="feature-list">
+            <li><strong>Tools</strong> — Actions like file ops, DB queries, API calls</li>
+            <li><strong>Resources</strong> — Read-only context (files, tables, API responses)</li>
+            <li><strong>Prompts</strong> — Preconfigured prompt templates from the server</li>
+            <li><strong>MCP Apps</strong> — Interactive UI components (forms, visualizations) rendered in chat</li>
+            <li><strong>Sandboxing</strong> — On macOS/Linux, restrict file system and network access per server</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Prompt Files, Skills, Hooks -->
+    <div class="collapsible reveal">
+      <div class="collapsible-header">
+        <h3>📁 Prompt Files, Skills &amp; Hooks</h3>
+        <svg class="collapsible-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+      </div>
+      <div class="collapsible-body">
+        <div class="collapsible-content">
+          <ul class="feature-list">
+            <li><strong>Prompt Files</strong> — Reusable prompt templates you can run with <code>/&lt;prompt-name&gt;</code>. Define what task to perform (vs instructions which say how). Use <code>/create-prompt</code> to generate.</li>
+            <li><strong>Skills</strong> — Domain-specific capabilities that work across VS Code, CLI, and cloud agents. Define specialized knowledge and tool usage patterns. Use <code>/create-skill</code> to generate.</li>
+            <li><strong>Hooks</strong> — Execute custom commands at lifecycle events (before/after tool calls, on session start/end). Use for automation and policy enforcement. Use <code>/create-hook</code> to generate.</li>
+          </ul>
+          <p class="text-secondary mt-sm">Manage all customizations from the <strong>Chat Customizations editor</strong>: run <code>Chat: Open Chat Customizations</code> from the Command Palette.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="try-it reveal">
+      <div class="try-it-label">🧪 Try It</div>
+      <p>Type <code>/init</code> in chat to generate instructions for your project. Then type <code>/create-agent code reviewer that focuses on security</code> to create a custom agent. Try switching to it in the agent picker.</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     13. BEST PRACTICES & PROMPT ENGINEERING
+     ============================================================ -->
+<section id="best-practices">
+  <div class="container">
+    <div class="section-header reveal">
+      <input type="checkbox" class="section-check" data-section="best-practices" aria-label="Mark Best Practices as complete" />
+      <div>
+        <span class="section-label">Step 12</span>
+        <h2>Best Practices &amp; Prompt Engineering</h2>
+      </div>
+    </div>
+    <p class="section-subtitle reveal">Proven strategies for getting the best results from AI in VS Code.</p>
+
+    <!-- Pick the Right Tool -->
+    <h3 class="reveal">Pick the Right Tool for the Task</h3>
+    <div class="bp-table reveal">
+      <table class="shortcut-table">
+        <thead>
+          <tr>
+            <th>Tool</th>
+            <th>Best For</th>
+            <th>Examples</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>Inline Suggestions</strong></td><td>Staying in flow while writing</td><td>Completions, variable names, boilerplate</td></tr>
+          <tr><td><strong>Ask (chat)</strong></td><td>Questions, brainstorming</td><td>"How does auth work in this project?"</td></tr>
+          <tr><td><strong>Inline Chat</strong></td><td>Targeted, in-place edits</td><td>Refactoring a function, adding error handling</td></tr>
+          <tr><td><strong>Agent</strong></td><td>Multi-file autonomous changes</td><td>End-to-end feature implementation</td></tr>
+          <tr><td><strong>Plan</strong></td><td>Structured planning</td><td>Architecture design, migration strategy</td></tr>
+          <tr><td><strong>Smart Actions</strong></td><td>One-step specialized tasks</td><td>Commit messages, rename, fix errors</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Prompt Engineering -->
+    <h3 class="reveal">Writing Effective Prompts</h3>
+    <div class="card-grid reveal">
+      <div class="card">
+        <div class="card-icon">🎯</div>
+        <h3>Be Specific</h3>
+        <p>State the language, frameworks, expected behavior, and constraints. Include example input/output. Vague prompts like "make this better" give the AI no direction.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">🧩</div>
+        <h3>Break Down Tasks</h3>
+        <p>Decompose complex features into smaller steps. This produces more reliable results and catches problems early. Let multi-turn conversations build on each step.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">✅</div>
+        <h3>Include Verification</h3>
+        <p>Provide test cases and acceptance criteria. <em>"Write unit tests that verify: 10 req/s allowed, 11th rejected, bucket refills after 1s."</em> This is the highest-leverage thing you can do.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">🔄</div>
+        <h3>Iterate &amp; Course-Correct</h3>
+        <p>Refine with follow-up messages. If the AI heads wrong, steer it with a new prompt rather than starting over. Tell it to ask clarifying questions if the task is ambiguous.</p>
+      </div>
+    </div>
+
+    <!-- Workflow -->
+    <h3 class="reveal mt-lg">The Plan → Implement → Review Workflow</h3>
+    <div class="card-grid reveal">
+      <div class="card">
+        <div class="card-icon">1</div>
+        <h3>Explore</h3>
+        <p>Use <strong>Ask</strong> mode or subagents to read code and understand how it works before making changes.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">2</div>
+        <h3>Plan</h3>
+        <p>Use the <strong>Plan</strong> agent to create a structured implementation plan. Review and refine before executing.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">3</div>
+        <h3>Implement</h3>
+        <p>Switch to <strong>Agent</strong> and implement from the plan. Include tests. Hand off to background or cloud for long tasks.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">4</div>
+        <h3>Review</h3>
+        <p>Use <strong>checkpoints</strong> to review progress. Rewind if off track. Request a Copilot code review on the PR.</p>
+      </div>
+    </div>
+
+    <!-- Session Management -->
+    <div class="tip-box yellow reveal">
+      <span class="tip-box-icon">💡</span>
+      <p><strong>Session hygiene:</strong> Start new sessions for unrelated tasks — context pollution degrades responses. Use <code>/compact</code> to trim long conversations. Run parallel sessions for independent work. Use subagents to explore in isolation without cluttering your main context.</p>
+    </div>
+
+    <div class="try-it reveal">
+      <div class="try-it-label">🧪 Try It</div>
+      <p>Switch to <strong>Plan</strong> agent and prompt: <em>"Plan adding dark mode support to this app. Consider CSS variables, user preference persistence, and system theme detection."</em> Review the plan, then hand off to Agent.</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     14. KEYBOARD SHORTCUTS CHEAT SHEET
+     ============================================================ -->
+<section id="shortcuts">
+  <div class="container">
+    <div class="section-header reveal">
+      <input type="checkbox" class="section-check" data-section="shortcuts" aria-label="Mark Shortcuts as complete" />
+      <div>
+        <span class="section-label">Reference</span>
+        <h2>Keyboard Shortcuts Cheat Sheet</h2>
+      </div>
+    </div>
+    <p class="section-subtitle reveal">All essential Copilot shortcuts in one place. Search and filter by action or key.</p>
+
+    <div class="shortcut-filter reveal">
+      <input type="text" id="shortcut-search" placeholder="Search shortcuts… (e.g. 'chat', 'inline', 'tab')" />
+      <div class="os-toggle">
+        <button class="active" data-os="mac">macOS</button>
+        <button data-os="win">Win / Linux</button>
+      </div>
+    </div>
+
+    <table class="shortcut-table reveal" id="shortcut-table">
+      <thead>
+        <tr>
+          <th>Action</th>
+          <th>Shortcut</th>
+          <th>Where</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Open Chat view</td><td class="shortcut-keys"><span class="key-mac"><kbd>⌃⌘I</kbd></span><span class="key-win" style="display:none"><kbd>Ctrl+Alt+I</kbd></span></td><td>Global</td></tr>
+        <tr><td>New chat session</td><td class="shortcut-keys"><span class="key-mac"><kbd>⌘N</kbd></span><span class="key-win" style="display:none"><kbd>Ctrl+N</kbd></span></td><td>Chat view</td></tr>
+        <tr><td>Toggle agents</td><td class="shortcut-keys"><span class="key-mac"><kbd>⇧⌘I</kbd></span><span class="key-win" style="display:none"><kbd>Ctrl+Shift+I</kbd></span></td><td>Chat view</td></tr>
+        <tr><td>Open inline chat (editor)</td><td class="shortcut-keys"><span class="key-mac"><kbd>⌘I</kbd></span><span class="key-win" style="display:none"><kbd>Ctrl+I</kbd></span></td><td>Editor</td></tr>
+        <tr><td>Open inline chat (terminal)</td><td class="shortcut-keys"><span class="key-mac"><kbd>⌘I</kbd></span><span class="key-win" style="display:none"><kbd>Ctrl+I</kbd></span></td><td>Terminal</td></tr>
+        <tr><td>Quick Chat</td><td class="shortcut-keys"><span class="key-mac"><kbd>⇧⌥⌘L</kbd></span><span class="key-win" style="display:none"><kbd>Ctrl+Shift+Alt+L</kbd></span></td><td>Global</td></tr>
+        <tr><td>Accept inline suggestion</td><td class="shortcut-keys"><kbd>Tab</kbd></td><td>Editor</td></tr>
+        <tr><td>Accept next word</td><td class="shortcut-keys"><span class="key-mac"><kbd>⌘→</kbd></span><span class="key-win" style="display:none"><kbd>Ctrl+→</kbd></span></td><td>Editor</td></tr>
+        <tr><td>Dismiss suggestion</td><td class="shortcut-keys"><kbd>Esc</kbd></td><td>Editor</td></tr>
+        <tr><td>Next alternative suggestion</td><td class="shortcut-keys"><span class="key-mac"><kbd>⌥]</kbd></span><span class="key-win" style="display:none"><kbd>Alt+]</kbd></span></td><td>Editor</td></tr>
+        <tr><td>Previous alternative suggestion</td><td class="shortcut-keys"><span class="key-mac"><kbd>⌥[</kbd></span><span class="key-win" style="display:none"><kbd>Alt+[</kbd></span></td><td>Editor</td></tr>
+        <tr><td>Navigate to NES / Accept NES</td><td class="shortcut-keys"><kbd>Tab</kbd></td><td>Editor (NES)</td></tr>
+        <tr><td>Model picker</td><td class="shortcut-keys"><span class="key-mac"><kbd>⌥⌘.</kbd></span><span class="key-win" style="display:none"><kbd>Ctrl+Alt+.</kbd></span></td><td>Chat view</td></tr>
+        <tr><td>Rename symbol (AI suggestions)</td><td class="shortcut-keys"><kbd>F2</kbd></td><td>Editor</td></tr>
+        <tr><td>Run inline chat command</td><td class="shortcut-keys"><span class="key-mac"><kbd>⌘Enter</kbd></span><span class="key-win" style="display:none"><kbd>Ctrl+Enter</kbd></span></td><td>Terminal</td></tr>
+        <tr><td>Insert inline chat command</td><td class="shortcut-keys"><span class="key-mac"><kbd>⌥Enter</kbd></span><span class="key-win" style="display:none"><kbd>Alt+Enter</kbd></span></td><td>Terminal</td></tr>
+        <tr><td>Voice chat</td><td class="shortcut-keys"><span class="key-mac"><kbd>⌘I</kbd> (hold)</span><span class="key-win" style="display:none"><kbd>Ctrl+I</kbd> (hold)</span></td><td>Global</td></tr>
+        <tr><td>Command Palette</td><td class="shortcut-keys"><span class="key-mac"><kbd>⇧⌘P</kbd></span><span class="key-win" style="display:none"><kbd>Ctrl+Shift+P</kbd></span></td><td>Global</td></tr>
+        <tr><td>Open Extensions view</td><td class="shortcut-keys"><span class="key-mac"><kbd>⇧⌘X</kbd></span><span class="key-win" style="display:none"><kbd>Ctrl+Shift+X</kbd></span></td><td>Global</td></tr>
+        <tr><td>Toggle terminal</td><td class="shortcut-keys"><span class="key-mac"><kbd>⌃`</kbd></span><span class="key-win" style="display:none"><kbd>Ctrl+`</kbd></span></td><td>Global</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     15. RESOURCES & NEXT STEPS
+     ============================================================ -->
+<section id="resources">
+  <div class="container">
+    <div class="section-header reveal">
+      <input type="checkbox" class="section-check" data-section="resources" aria-label="Mark Resources as complete" />
+      <div>
+        <span class="section-label">Continue Learning</span>
+        <h2>Resources &amp; Next Steps</h2>
+      </div>
+    </div>
+    <p class="section-subtitle reveal">Keep building your Copilot skills with these official resources.</p>
+
+    <div class="resources-grid reveal">
+      <a href="https://code.visualstudio.com/docs/copilot/overview" target="_blank" rel="noopener" class="resource-link">
+        <span>📖</span> VS Code Copilot Documentation
+      </a>
+      <a href="https://code.visualstudio.com/docs/copilot/getting-started" target="_blank" rel="noopener" class="resource-link">
+        <span>🚀</span> Quickstart Tutorial
+      </a>
+      <a href="https://code.visualstudio.com/docs/copilot/agents/agents-tutorial" target="_blank" rel="noopener" class="resource-link">
+        <span>🤖</span> Agents Tutorial
+      </a>
+      <a href="https://code.visualstudio.com/docs/copilot/reference/copilot-vscode-features" target="_blank" rel="noopener" class="resource-link">
+        <span>⌨️</span> Official Cheat Sheet
+      </a>
+      <a href="https://code.visualstudio.com/docs/copilot/best-practices" target="_blank" rel="noopener" class="resource-link">
+        <span>💡</span> Best Practices Guide
+      </a>
+      <a href="https://code.visualstudio.com/docs/copilot/customization/overview" target="_blank" rel="noopener" class="resource-link">
+        <span>⚙️</span> Customization Guide
+      </a>
+      <a href="https://code.visualstudio.com/docs/copilot/customization/mcp-servers" target="_blank" rel="noopener" class="resource-link">
+        <span>🔌</span> MCP Servers Documentation
+      </a>
+      <a href="https://code.visualstudio.com/docs/copilot/chat/prompt-examples" target="_blank" rel="noopener" class="resource-link">
+        <span>💬</span> Prompt Examples
+      </a>
+      <a href="https://docs.github.com/en/copilot/copilot-chat-cookbook" target="_blank" rel="noopener" class="resource-link">
+        <span>📚</span> Copilot Chat Cookbook
+      </a>
+      <a href="https://github.com/github/awesome-copilot" target="_blank" rel="noopener" class="resource-link">
+        <span>⭐</span> Awesome Copilot (Community)
+      </a>
+      <a href="https://www.youtube.com/playlist?list=PLj6YeMhvp2S5_hvBl2SE-7YCHYlLQ0bPt" target="_blank" rel="noopener" class="resource-link">
+        <span>🎥</span> VS Code Copilot YouTube Series
+      </a>
+      <a href="https://code.visualstudio.com/docs/copilot/guides/context-engineering-guide" target="_blank" rel="noopener" class="resource-link">
+        <span>🧠</span> Context Engineering Guide
+      </a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     FOOTER
+     ============================================================ -->
+<footer class="footer">
+  <div class="container">
+    <p>Built to help you master GitHub Copilot in VS Code. Content sourced from <a href="https://code.visualstudio.com/docs/copilot/overview" target="_blank" rel="noopener">official VS Code documentation</a>.</p>
+    <p style="margin-top:8px">Not affiliated with GitHub or Microsoft. Last updated April 2026.</p>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
